@@ -1,26 +1,30 @@
-import React from 'react';
+import React, { useState, Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends Component {
+  //const [count, setCount] = useState(0);
+  //const increment = () => setCount(count + 1);
+
+  state = {
+    count: 0
+  };
+  increment = () => this.setState({ count: count + 1 });
+  render() {
+    return (
+      <div className='App' data-test='component-app'>
+        <h1>Counter: {this.state.count}</h1>
+        <button
+          id='increment'
+          type='button'
+          onClick={this.increment}
+          style={{ marginBottom: '20px' }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          Increment
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
