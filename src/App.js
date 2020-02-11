@@ -7,21 +7,45 @@ class App extends Component {
   //const increment = () => setCount(count + 1);
 
   state = {
-    count: 0
+    count: 0,
+    error: false
   };
-  increment = () => this.setState({ count: count + 1 });
+
+  decrement = () => {
+    if (this.state.count > 0) {
+      this.setState({ count: this.state.count - 1 });
+    } else {
+      this.setState({ error: true });
+    }
+  };
+
   render() {
     return (
       <div className='App' data-test='component-app'>
-        <h1>Counter: {this.state.count}</h1>
+        <h1 data-test='counter-display'>Counter: {this.state.count}</h1>
         <button
-          id='increment'
           type='button'
-          onClick={this.increment}
-          style={{ marginBottom: '20px' }}
+          onClick={() =>
+            this.setState({ count: this.state.count + 1, error: false })
+          }
+          style={{ marginRight: '10px' }}
+          data-test='increment-button'
         >
           Increment
         </button>
+        <button
+          type='button'
+          onClick={this.decrement}
+          style={{ marginLeft: '10px' }}
+          data-test='decrement-button'
+        >
+          Decrement
+        </button>
+        {this.state.error && (
+          <h1 data-test='error-display' style={{ color: 'red' }}>
+            Cannot decrement below 0!
+          </h1>
+        )}
       </div>
     );
   }
