@@ -1,11 +1,8 @@
-import React, { useState, Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
+// use class based component for now
 class App extends Component {
-  //const [count, setCount] = useState(0);
-  //const increment = () => setCount(count + 1);
-
   state = {
     count: 0,
     error: false
@@ -22,7 +19,9 @@ class App extends Component {
   render() {
     return (
       <div className='App' data-test='component-app'>
-        <h1 data-test='counter-display'>Counter: {this.state.count}</h1>
+        <h1 data-test='counter-display' id='counter-display'>
+          Counter: {this.state.count}
+        </h1>
         <button
           type='button'
           onClick={() =>
@@ -42,7 +41,11 @@ class App extends Component {
           Decrement
         </button>
         {this.state.error && (
-          <h1 data-test='error-display' style={{ color: 'red' }}>
+          <h1
+            data-test='error-display'
+            id='error-display'
+            style={{ color: 'red' }}
+          >
             Cannot decrement below 0!
           </h1>
         )}
