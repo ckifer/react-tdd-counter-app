@@ -1,31 +1,12 @@
-const { Builder, By, Key, until, Capabilities } = require('selenium-webdriver');
-require('selenium-webdriver/chrome');
-require('chromedriver');
-
-var chromeCapabilities = Capabilities.chrome();
-//setting chrome options
-var chromeOptions = {
-  args: ['--headless', '--test-type']
-};
-chromeCapabilities.set('chromeOptions', chromeOptions);
-
-const url = 'http://localhost:3000';
-
-let driver;
-const waitUntilTime = 20000;
-
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000 * 60 * 5;
-
-beforeAll(done => {
-  driver = new Builder()
-    .forBrowser('chrome')
-    .withCapabilities(chromeCapabilities)
-    .build();
-  driver.get(url).then(done);
-});
+const { By, Key, until } = require('selenium-webdriver');
+import {
+  E2E_URL,
+  SELENIUM_TIMEOUT,
+  driver
+} from './utilities/selenium-options';
 
 beforeEach(done => {
-  driver.get(url).then(done);
+  driver.get(E2E_URL).then(done);
 });
 
 afterAll(done => {
@@ -33,16 +14,19 @@ afterAll(done => {
 });
 
 async function getElementById(id) {
-  const el = await driver.wait(until.elementLocated(By.id(id)), waitUntilTime);
-  return await driver.wait(until.elementIsVisible(el), waitUntilTime);
+  const el = await driver.wait(
+    until.elementLocated(By.id(id)),
+    SELENIUM_TIMEOUT
+  );
+  return await driver.wait(until.elementIsVisible(el), SELENIUM_TIMEOUT);
 }
 
 async function getElementByXPath(xpath) {
   const el = await driver.wait(
     until.elementLocated(By.xpath(xpath)),
-    waitUntilTime
+    SELENIUM_TIMEOUT
   );
-  return await driver.wait(until.elementIsVisible(el), waitUntilTime);
+  return await driver.wait(until.elementIsVisible(el), SELENIUM_TIMEOUT);
 }
 
 describe('E2E - Selenium Webdriver', () => {
