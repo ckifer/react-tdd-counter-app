@@ -14,9 +14,15 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
+`npm start` must be run before E2E tests will work
+
 Launches Jest in the interactive watch mode.<br />
 
 Runs Unit tests with Jest/Enzyme as well as E2E tests with Jest/Selenium Webdriver
+
+### `npm run wdio`
+
+run webdriver.io E2E tests
 
 ### `npx cypress open`
 
