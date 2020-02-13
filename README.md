@@ -18,7 +18,13 @@ You will also see any lint errors in the console.
 
 Launches Jest in the interactive watch mode.<br />
 
-Runs Unit tests with Jest/Enzyme as well as E2E tests with Jest/Selenium Webdriver
+Runs Unit tests with Jest/Enzyme
+
+### `npm run selenium`
+
+`npm start` must be run before E2E tests will work
+
+run Selenium/Jest e2e tests
 
 ### `npm run wdio`
 
