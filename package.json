@@ -92,7 +92,8 @@
   },
   "jest": {
     "roots": [
-      "<rootDir>/src"
+      "<rootDir>/src",
+      "<rootDir>/selenium_webdriver"
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -106,7 +107,8 @@
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}",
+      "<rootDir>/selenium_webdriver/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jest-environment-jsdom-fourteen",
     "transform": {

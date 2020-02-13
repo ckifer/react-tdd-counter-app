@@ -3,7 +3,7 @@ require('selenium-webdriver/chrome');
 require('chromedriver');
 
 var chromeCapabilities = Capabilities.chrome();
-//setting chrome options to start the browser fully maximized
+//setting chrome options
 var chromeOptions = {
   args: ['--headless', '--test-type']
 };
@@ -16,16 +16,19 @@ const waitUntilTime = 20000;
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000 * 60 * 5;
 
-beforeEach(done => {
+beforeAll(done => {
   driver = new Builder()
     .forBrowser('chrome')
     .withCapabilities(chromeCapabilities)
     .build();
-
   driver.get(url).then(done);
 });
 
-afterEach(done => {
+beforeEach(done => {
+  driver.get(url).then(done);
+});
+
+afterAll(done => {
   driver.quit().then(done);
 });
 
@@ -42,7 +45,7 @@ async function getElementByXPath(xpath) {
   return await driver.wait(until.elementIsVisible(el), waitUntilTime);
 }
 
-describe('test functionality', () => {
+describe('E2E - Selenium Webdriver', () => {
   it('Clicks increment button', async () => {
     // query element and click
     const el = await getElementByXPath('//*[@data-test="increment-button"]');
