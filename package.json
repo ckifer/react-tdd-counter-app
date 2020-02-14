@@ -66,7 +66,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js src",
     "selenium": "node scripts/test.js selenium_webdriver",
-    "wdio": "wdio run wdio.conf.js"
+    "wdio": "wdio run wdio.conf.js",
+    "cy:run": "cypress run",
+    "ci": "start-server-and-test start http://localhost:3000 cy:run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -97,6 +99,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "jest-enzyme": "^7.1.2",
     "selenium-webdriver": "^4.0.0-alpha.5",
+    "start-server-and-test": "^1.10.8",
     "wdio-chromedriver-service": "^5.0.2"
   },
   "jest": {
