@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ckifer/react-tdd-counter-app.svg?branch=master)](https://travis-ci.org/ckifer/react-tdd-counter-app)
+
 This project was bootstrapped and ejected with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
