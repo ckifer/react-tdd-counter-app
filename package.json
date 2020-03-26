@@ -98,7 +98,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "jest-enzyme": "^7.1.2",
-    "selenium-webdriver": "^4.0.0-alpha.5",
+    "selenium-webdriver": "^4.0.0-alpha.7",
     "start-server-and-test": "^1.10.8",
     "wdio-chromedriver-service": "^5.0.2"
   },
